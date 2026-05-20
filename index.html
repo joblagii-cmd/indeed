@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JobsNow — Find Your Next Job</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Jobs<span>Now</span></a>
+    <nav class="nav">
+      <a href="index.html">Find Jobs</a>
+      <a href="company-reviews.html">Company Reviews</a>
+      <a href="salary.html">Salary Guide</a>
+    </nav>
+    <div class="header-actions">
+      <a href="signin.html" class="btn btn-outline">Sign In</a>
+      <a href="register.html" class="btn btn-primary">Post a Job</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Find your <em>dream job</em> today</h1>
+    <p class="hero-sub">Search millions of jobs from thousands of companies</p>
+
+    <form class="search-box" action="jobs.html" method="get">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" name="q" placeholder="Job title, keywords, or company" />
+      </div>
+      <div class="search-divider"></div>
+      <div class="search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <input type="text" name="loc" placeholder="City, state, or zip code" />
+      </div>
+      <button type="submit" class="btn btn-search">Find Jobs</button>
+    </form>
+
+    <div class="popular-searches">
+      <span>Popular:</span>
+      <a href="jobs.html?q=remote">Remote</a>
+      <a href="jobs.html?q=data+analyst">Data Analyst</a>
+      <a href="jobs.html?q=software+engineer">Software Engineer</a>
+      <a href="jobs.html?q=marketing">Marketing</a>
+      <a href="jobs.html?q=nurse">Nurse</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat-item">
+      <strong>2.5M+</strong>
+      <span>Active Jobs</span>
+    </div>
+    <div class="stat-item">
+      <strong>180K+</strong>
+      <span>Companies Hiring</span>
+    </div>
+    <div class="stat-item">
+      <strong>50M+</strong>
+      <span>Job Seekers</span>
+    </div>
+    <div class="stat-item">
+      <strong>4.8★</strong>
+      <span>App Rating</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED JOBS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Featured Jobs</h2>
+      <a href="jobs.html" class="see-all">See all jobs →</a>
+    </div>
+    <div class="jobs-grid" id="featuredJobs"></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section bg-light">
+  <div class="container">
+    <h2 class="section-title">Browse by Category</h2>
+    <div class="categories-grid">
+      <a href="jobs.html?cat=technology" class="category-card">
+        <div class="cat-icon">💻</div>
+        <div class="cat-name">Technology</div>
+        <div class="cat-count">142,000 jobs</div>
+      </a>
+      <a href="jobs.html?cat=healthcare" class="category-card">
+        <div class="cat-icon">🏥</div>
+        <div class="cat-name">Healthcare</div>
+        <div class="cat-count">98,000 jobs</div>
+      </a>
+      <a href="jobs.html?cat=finance" class="category-card">
+        <div class="cat-icon">💰</div>
+        <div class="cat-name">Finance</div>
+        <div class="cat-count">76,000 jobs</div>
+      </a>
+      <a href="jobs.html?cat=education" class="category-card">
+        <div class="cat-icon">📚</div>
+        <div class="cat-name">Education</div>
+        <div class="cat-count">54,000 jobs</div>
+      </a>
+      <a href="jobs.html?cat=marketing" class="category-card">
+        <div class="cat-icon">📣</div>
+        <div class="cat-name">Marketing</div>
+        <div class="cat-count">43,000 jobs</div>
+      </a>
+      <a href="jobs.html?cat=sales" class="category-card">
+        <div class="cat-icon">🤝</div>
+        <div class="cat-name">Sales</div>
+        <div class="cat-count">67,000 jobs</div>
+      </a>
+      <a href="jobs.html?cat=design" class="category-card">
+        <div class="cat-icon">🎨</div>
+        <div class="cat-name">Design</div>
+        <div class="cat-count">28,000 jobs</div>
+      </a>
+      <a href="jobs.html?cat=remote" class="category-card">
+        <div class="cat-icon">🌍</div>
+        <div class="cat-name">Remote</div>
+        <div class="cat-count">210,000 jobs</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TOP COMPANIES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Top Companies Hiring</h2>
+      <a href="companies.html" class="see-all">See all companies →</a>
+    </div>
+    <div class="companies-grid">
+      <a href="company.html?name=google" class="company-card">
+        <div class="company-logo">G</div>
+        <div class="company-info">
+          <strong>Google</strong>
+          <span>1,240 open roles</span>
+        </div>
+      </a>
+      <a href="company.html?name=amazon" class="company-card">
+        <div class="company-logo amazon">A</div>
+        <div class="company-info">
+          <strong>Amazon</strong>
+          <span>3,450 open roles</span>
+        </div>
+      </a>
+      <a href="company.html?name=microsoft" class="company-card">
+        <div class="company-logo ms">M</div>
+        <div class="company-info">
+          <strong>Microsoft</strong>
+          <span>980 open roles</span>
+        </div>
+      </a>
+      <a href="company.html?name=meta" class="company-card">
+        <div class="company-logo meta">f</div>
+        <div class="company-info">
+          <strong>Meta</strong>
+          <span>560 open roles</span>
+        </div>
+      </a>
+      <a href="company.html?name=apple" class="company-card">
+        <div class="company-logo apple">🍎</div>
+        <div class="company-info">
+          <strong>Apple</strong>
+          <span>720 open roles</span>
+        </div>
+      </a>
+      <a href="company.html?name=netflix" class="company-card">
+        <div class="company-logo netflix">N</div>
+        <div class="company-info">
+          <strong>Netflix</strong>
+          <span>340 open roles</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container cta-inner">
+    <div>
+      <h2>Ready to find your next opportunity?</h2>
+      <p>Create a free account and get matched with jobs that fit you.</p>
+    </div>
+    <a href="register.html" class="btn btn-white">Get Started Free</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">Jobs<span>Now</span></a>
+      <p>Connecting talented people with amazing opportunities.</p>
+    </div>
+    <div class="footer-links">
+      <h4>For Job Seekers</h4>
+      <a href="jobs.html">Browse Jobs</a>
+      <a href="salary.html">Salary Guide</a>
+      <a href="resume.html">Resume Builder</a>
+      <a href="career-advice.html">Career Advice</a>
+    </div>
+    <div class="footer-links">
+      <h4>For Employers</h4>
+      <a href="post-job.html">Post a Job</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="employer-resources.html">Resources</a>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 JobsNow. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

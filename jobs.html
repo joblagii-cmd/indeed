@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Jobs — JobsNow</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Jobs<span>Now</span></a>
+    <form class="header-search" action="jobs.html" method="get">
+      <div class="search-field small">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" name="q" id="headerQ" placeholder="Job title or keyword"/>
+      </div>
+      <div class="search-field small">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <input type="text" name="loc" id="headerLoc" placeholder="Location"/>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Search</button>
+    </form>
+    <div class="header-actions">
+      <a href="signin.html" class="btn btn-outline">Sign In</a>
+    </div>
+  </div>
+</header>
+
+<div class="jobs-page container">
+
+  <!-- FILTERS SIDEBAR -->
+  <aside class="filters-sidebar">
+    <h3>Filter Results</h3>
+
+    <div class="filter-group">
+      <h4>Date Posted</h4>
+      <label><input type="radio" name="date" value="any" checked/> Any time</label>
+      <label><input type="radio" name="date" value="1"/> Last 24 hours</label>
+      <label><input type="radio" name="date" value="3"/> Last 3 days</label>
+      <label><input type="radio" name="date" value="7"/> Last 7 days</label>
+      <label><input type="radio" name="date" value="14"/> Last 14 days</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Job Type</h4>
+      <label><input type="checkbox" value="fulltime"/> Full-time</label>
+      <label><input type="checkbox" value="parttime"/> Part-time</label>
+      <label><input type="checkbox" value="contract"/> Contract</label>
+      <label><input type="checkbox" value="temporary"/> Temporary</label>
+      <label><input type="checkbox" value="internship"/> Internship</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Salary Range</h4>
+      <label><input type="radio" name="salary" value="any" checked/> Any salary</label>
+      <label><input type="radio" name="salary" value="30k"/> $30,000+</label>
+      <label><input type="radio" name="salary" value="50k"/> $50,000+</label>
+      <label><input type="radio" name="salary" value="80k"/> $80,000+</label>
+      <label><input type="radio" name="salary" value="100k"/> $100,000+</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Experience Level</h4>
+      <label><input type="checkbox" value="entry"/> Entry level</label>
+      <label><input type="checkbox" value="mid"/> Mid level</label>
+      <label><input type="checkbox" value="senior"/> Senior level</label>
+      <label><input type="checkbox" value="executive"/> Executive</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Work Setting</h4>
+      <label><input type="checkbox" value="remote"/> Remote</label>
+      <label><input type="checkbox" value="hybrid"/> Hybrid</label>
+      <label><input type="checkbox" value="onsite"/> On-site</label>
+    </div>
+  </aside>
+
+  <!-- JOB RESULTS -->
+  <main class="jobs-results">
+    <div class="results-header">
+      <p id="resultsCount">Loading jobs...</p>
+      <select class="sort-select" id="sortSelect">
+        <option value="relevance">Most Relevant</option>
+        <option value="date">Date Posted</option>
+        <option value="salary">Salary</option>
+      </select>
+    </div>
+
+    <div id="jobsList" class="jobs-list"></div>
+
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <!-- JOB DETAIL PANEL -->
+  <aside class="job-detail-panel" id="jobDetailPanel">
+    <div class="job-detail-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      <p>Select a job to see details</p>
+    </div>
+  </aside>
+
+</div>
+
+<script src="app.js"></script>
+<script>
+  // Pre-fill search from URL params
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('q')) document.getElementById('headerQ').value = params.get('q');
+  if (params.get('loc')) document.getElementById('headerLoc').value = params.get('loc');
+  renderJobsList(params.get('q') || '', params.get('loc') || '');
+</script>
+</body>
+</html>

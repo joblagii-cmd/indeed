@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Detail — JobsNow</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">Jobs<span>Now</span></a>
+    <nav class="nav">
+      <a href="jobs.html">Find Jobs</a>
+      <a href="company-reviews.html">Company Reviews</a>
+      <a href="salary.html">Salary Guide</a>
+    </nav>
+    <div class="header-actions">
+      <a href="signin.html" class="btn btn-outline">Sign In</a>
+      <a href="register.html" class="btn btn-primary">Post a Job</a>
+    </div>
+  </div>
+</header>
+
+<div class="job-detail-page container" id="jobDetailContent">
+  <!-- Filled by JS -->
+</div>
+
+<!-- SIMILAR JOBS -->
+<section class="section">
+  <div class="container">
+    <h2>Similar Jobs</h2>
+    <div class="jobs-grid" id="similarJobs"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <p>© 2026 JobsNow. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const jobId = parseInt(params.get('id') || '0');
+  renderJobDetail(jobId);
+  renderSimilarJobs(jobId);
+</script>
+</body>
+</html>
